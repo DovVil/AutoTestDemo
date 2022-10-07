@@ -52,6 +52,53 @@ public class TestSelenium {
 
     }
 
+    @Test
+    private void testInputEmail() {
+        String expectedEmail = "dovydas@gmail.com";
+        String actualEmail;
+
+        WebElement inputFullEmail = driver.findElement(By.xpath("//*[@id='userEmail']"));
+        inputFullEmail.sendKeys(expectedEmail);
+
+        WebElement buttonSubmit = driver.findElement(By.xpath("//*[@id='submit']"));
+        buttonSubmit.click();
+
+        WebElement textEmail = driver.findElement(By.xpath("//*[@id='email']"));
+        actualEmail = textEmail.getText();
+
+        //Assert.assertEquals(actualFullName , expectedFullName);    netinkamas, nes tekstas visada skirsis
+        // actual pradzioj bus "Name:"
+        Assert.assertTrue(actualEmail.contains(expectedEmail),
+                String.format("Actual: [%s] Expected: [%s]", actualEmail, expectedEmail));
+
+    }
+
+    @Test
+    private void testInputCurrentAddress() {
+        String expectedCurrentAddress = "Gedimino prospektas";
+        String actualCurrentAddress;
+
+        WebElement inputCurrentAddress = driver.findElement(By.xpath("//*[@placeholder='Current Address']"));
+        inputCurrentAddress.sendKeys(expectedCurrentAddress);
+
+        WebElement buttonSubmit = driver.findElement(By.xpath("//*[@id='submit']"));
+        buttonSubmit.click();
+
+        WebElement textCurrentAddress = driver.findElement(By.xpath("//*[@class='mb-1']"));
+        actualCurrentAddress = textCurrentAddress.getText();
+
+        //Assert.assertEquals(actualFullName , expectedFullName);    netinkamas, nes tekstas visada skirsis
+        // actual pradzioj bus "Name:"
+        Assert.assertTrue(actualCurrentAddress.contains(expectedCurrentAddress),
+                String.format("Actual: [%s] Expected: [%s]", actualCurrentAddress, expectedCurrentAddress));
+
+    }
+
+    //          //*[@id='currentAddress']       vietoj zvaigzdutes galima nurodyt p arba textarea siuo atveju
+    //          tarp dvieju variantu, arba dar vienas variantas:
+    //          (//*[@id='currentAddress'])[1]    ivilkt viska i skliaustus ir tada lauztiniuose nurodyt kelinta
+    //          pasirinkti is visu randamu variantu
+
     @AfterMethod
     private void close() {
         try {
