@@ -11,6 +11,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import java.time.Duration;
+
 public class TestSelenium {
     WebDriver driver;
 
@@ -25,6 +27,7 @@ public class TestSelenium {
 
         driver = new ChromeDriver(options);  // reikia isidet options kur sukurem 21 eilutej
         driver.get("https://demoqa.com/text-box");
+        //driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10)); //  jei norim suletint, del sudinu pc resursu
 
     }
 
