@@ -99,6 +99,10 @@ public class TestSelenium {
     //          (//*[@id='currentAddress'])[1]    ivilkt viska i skliaustus ir tada lauztiniuose nurodyt kelinta
     //          pasirinkti is visu randamu variantu
 
+
+    //  dar variantas:   //button[text()='Show Message']
+    //  dar variantas:   //*[contains(text(),'Message')]
+
     @AfterMethod
     private void close() {
         driver.quit();
