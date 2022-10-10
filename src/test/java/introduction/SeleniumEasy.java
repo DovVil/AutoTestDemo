@@ -75,13 +75,14 @@ public class SeleniumEasy {
 
     }
 
-//    @AfterMethod
-//    private void close() {
+
+    @AfterMethod
+    private void close() {
 //        try {
 //            Thread.sleep(5000);
 //        } catch (InterruptedException e) {
 //            throw new RuntimeException(e);
 //        }
-//        driver.quit();
-//    }
+        driver.quit();
+    }
 }
