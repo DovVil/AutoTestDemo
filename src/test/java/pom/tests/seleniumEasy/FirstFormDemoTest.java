@@ -3,6 +3,7 @@ package pom.tests.seleniumEasy;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import pom.pages.seleniumEasy.FirstFormDemoPage;
 import pom.tests.TestBase;
@@ -30,11 +31,18 @@ public class FirstFormDemoTest extends TestBase {    // paveldimumas
         Assert.assertEquals(actualFullName, expectedFullName);
     }
 
-    @Test
-    private void testTwoInputFieldsAdd5and5Values() {
-        String input1 = "5";
-        String input2 = "5";
-        String expectedSumTotal = "10";
+    @DataProvider(name = "DataProviderForTwoInputFields")
+    public Object[][] provideDataForTwoInputFields(){
+        return new Object[][]{
+                {"5", "5", "10"},
+                {"3", "b", "NaN"},
+                {"a", "1", "NaN"},
+                {"4", "-1", "3"}
+        };
+    }
+
+    @Test(dataProvider = "DataProviderForTwoInputFields")
+    private void testTwoInputFieldsSum(String input1, String input2, String expectedSumTotal) {
         String actualSumTotal;
 
         FirstFormDemoPage.enterFirstInput(input1);

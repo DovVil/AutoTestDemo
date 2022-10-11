@@ -8,12 +8,12 @@ public class TestBase {
 
     @BeforeMethod
     public void setUp() {
-        Common.setUp();
+        Common.setUpDriver();
     }
 
     @AfterMethod
     public void tearDown() {
-        Common.close();
+        Common.closeDriver();
     }
 
 }

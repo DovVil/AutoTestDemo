@@ -2,19 +2,12 @@ package pom.pages.seleniumEasy;
 
 import org.openqa.selenium.By;
 import pom.pages.Common;
+import pom.pages.Locators;
 
 public class FirstFormDemoPage {
 
-    public static void setUp() {
-        Common.setUp();
-    }
-
     public static void open(String url) {
         Common.openUrl(url);
-    }
-
-    public static void close() {
-        Common.close();
     }
 
     public static void sleep(int milliseconds) {
@@ -24,37 +17,36 @@ public class FirstFormDemoPage {
     public static void enterFullName(String expectedFullName) {
         Common.sendKeysToElement(
                 expectedFullName,
-                By.xpath("//input[@id='user-message']")
-        );
+                Locators.SeleniumEasy.FirstFormDemo.inputFullName);
     }
 
 
     public static void clickButtonShowMessage() {
-        Common.clickElement(By.xpath("//form[@id='get-input']//button"));
+        Common.clickElement(Locators.SeleniumEasy.FirstFormDemo.buttonShowMessageClick);
     }
 
     public static String readMessage() {
-        return Common.getElementText(By.xpath("//span[@id='display']"));
+        return Common.getElementText(Locators.SeleniumEasy.FirstFormDemo.readMessage);
     }
 
     public static void enterFirstInput(String input1) {
         Common.sendKeysToElement(
                 input1,
-                By.xpath("//input[@id='sum1']"));
+                Locators.SeleniumEasy.FirstFormDemo.inputFirstValue);
     }
 
     public static void enterSecondInput(String input2) {
         Common.sendKeysToElement(
                 input2,
-                By.xpath("//input[@id='sum2']"));
+                Locators.SeleniumEasy.FirstFormDemo.inputSecondValue);
     }
 
 
     public static void clickButtonGetTotal() {
-        Common.clickElement(By.xpath("//*[@id='gettotal']//button"));
+        Common.clickElement(Locators.SeleniumEasy.FirstFormDemo.buttonGetTotalClick);
     }
 
     public static String readValue() {
-        return Common.getElementText(By.xpath("//*[@id='displayvalue']"));
+        return Common.getElementText(Locators.SeleniumEasy.FirstFormDemo.readTotalValue);
     }
 }
