@@ -70,6 +70,16 @@ public class Locators {
                 return By.xpath(String.format("//input[@value='%s' and @name='ageGroup']", age));
             }
         }
+        public static class AlertBoxDemo{
+            public static By buttonDisplayFirstAlertBox = By.xpath("//button[@class='btn btn-default']");
+            public static By buttonDisplayConfirmBox = By.xpath("//button[@onclick='myConfirmFunction()']");
+            public static By paragraphConfirmBox = By.xpath("//*[@id='confirm-demo']");
+            public static By buttonOpenAlertBoxToAddText =
+                    By.xpath("//button[@onclick='myPromptFunction()']");
+            public static By paragraphAlertBox = By.xpath("//*[@id='prompt-demo']");
+
+
+        }
     }
 
 }

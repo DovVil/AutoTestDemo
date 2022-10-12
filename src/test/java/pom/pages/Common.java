@@ -1,5 +1,6 @@
 package pom.pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -68,5 +69,20 @@ public class Common {
             statuses.add(element.isSelected());
         }
         return statuses;
+    }
+
+    public static Alert getAlert(){
+        return Driver.getDriver().switchTo().alert();
+    }
+    public static void acceptAlert() {
+        getAlert().accept();
+    }
+    public static void cancelAlert() {
+        getAlert().dismiss();
+    }
+
+    public static void sendKeysToAlert(String sendKeys) {
+        getAlert().sendKeys(sendKeys);
+
     }
 }
