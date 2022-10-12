@@ -15,7 +15,6 @@ public class CheckBoxDemoTest extends TestBase {
         super.setUp();
         CheckBoxDemoPage.open("https://demo.seleniumeasy.com/basic-checkbox-demo.html");
     }
-
     @Test
     private void testSingleCheckBoxDemo(){
         String expectedMessage = "Success - Check box is checked";

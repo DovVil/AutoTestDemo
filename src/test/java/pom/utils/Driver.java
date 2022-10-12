@@ -9,25 +9,23 @@ import java.time.Duration;
 
 public class Driver {
 
-    private static WebDriver driver;
+    //private static WebDriver driver;
+    private static ThreadLocal<WebDriver> driver = new ThreadLocal<>();   // kai testng.xml nurodom kiek paraleliai threads naudoti
 
     public static void setDriver() {
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(setUpOptions());
-        driver.manage().deleteAllCookies();
+        //driver = new ChromeDriver(setUpOptions());
+        driver.set(new ChromeDriver(setUpOptions()));
+        driver.get().manage().deleteAllCookies();  //     dadejom .get()
+        driver.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
     public static WebDriver getDriver() {
-        return driver;
-    }
-
-    public static void openUrl(String url) {
-        driver.get(url);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        return driver.get();  //      dadejom .get()
     }
 
     public static void close() {
-        driver.quit();
+        driver.get().quit();    //    dadejom .get()
     }
 
     private static ChromeOptions setUpOptions(){

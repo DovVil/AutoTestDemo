@@ -10,10 +10,10 @@ public class CheckBoxDemoPage {
     }
 
     public static void clickCheckBox() {
-        Common.clickElement(Locators.SeleniumEasy.singleCheckBoxDemo.clickCheckBox);
+        Common.clickElement(Locators.SeleniumEasy.SingleCheckBoxDemo.clickCheckBox);
     }
 
     public static String readMessage() {
-        return Common.getElementText(Locators.SeleniumEasy.singleCheckBoxDemo.readSingleCheckBoxText);
+        return Common.getElementText(Locators.SeleniumEasy.SingleCheckBoxDemo.readSingleCheckBoxText);
     }
 }

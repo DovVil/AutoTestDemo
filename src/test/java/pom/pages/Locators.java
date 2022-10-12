@@ -32,7 +32,7 @@ public class Locators {
 
         }
 
-        public static class singleCheckBoxDemo {
+        public static class SingleCheckBoxDemo {
             public static By clickCheckBox = By.xpath("//input[@id='isAgeSelected']");
             public static By readSingleCheckBoxText = By.xpath("//div[@id='txtAge']");
 
@@ -43,6 +43,28 @@ public class Locators {
             public static By readMessageOfDropdown = By.xpath("//p[@class='selected-value']");
             //                                                              //p[contains(text(), 'Day selected')]
 
+        }
+
+        public static class RadioButtonDemo{
+            public static By clickCheckedValueButton = By.xpath("//button[@id='buttoncheck']");
+            public static By clickGetValuesButton =
+                    By.xpath("//button[@class='btn btn-default' and @onclick='getValues();']");
+                                                       // galima naudoti  (//button)[3]  parenka trecia button
+            public static By readGroupRadioButtonGender = By.xpath("//p[@class='groupradiobutton']");
+                                                                                 //p[contains(text(), 'Sex :')]
+                                                                           //p[@class='groupradiobutton']//text()[1]
+            public static By readGroupRadioButtonAge = By.xpath("//p[@class='groupradiobutton']");
+                                                                           //p[@class='groupradiobutton']//text()[2]
+            public static By paragraphRadioButton = By.xpath("//p[@class='radiobutton']");
+            public static By inputByGender(String gender){
+                return By.xpath(String.format("//input[@value='%s' and @name='optradio']", gender));
+            }
+            public static By inputByGroupGender(String gender){
+                return By.xpath(String.format("//input[@value='%s' and @name='gender']", gender));
+            }
+            public static By inputByGroupAge(String age){
+                return By.xpath(String.format("//input[@value='%s' and @name='ageGroup']", age));
+            }
         }
     }
 
