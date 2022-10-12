@@ -36,7 +36,7 @@ public class RadioButtonDemoTest extends TestBase {
                 String.format("Actual: [%s] Expected: [%s]", actualMessage, expectedGender));
 
     }
-    @DataProvider(name = "DataProviderForGroupGenderSelection")
+    @DataProvider(name = "DataProviderForGroupGenderSelection", parallel = true)
     public Object[][] provideDataForGroupGenderSelection(){
         return new Object[][]{
                 {"Male", "0 - 5"},
@@ -47,7 +47,7 @@ public class RadioButtonDemoTest extends TestBase {
                 {"Female", "15 - 50"},
         };
     }
-    @Test(dataProvider = "DataProviderForGroupGenderSelection")
+    @Test(dataProvider = "DataProviderForGroupGenderSelection", threadPoolSize = 6)
     public void testGroupRadioButtonDemo(String expectedGroupGender, String expectedAgeGroup){
         String actualGenderMessage;
         String actualAgeGroupMessage;

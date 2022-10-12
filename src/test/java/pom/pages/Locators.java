@@ -37,6 +37,10 @@ public class Locators {
             public static By readSingleCheckBoxText = By.xpath("//div[@id='txtAge']");
 
         }
+        public static class MultipleCheckBoxDemo{
+            public static By buttonGroupCheckBox = By.xpath("//*[@id='check1']");
+            public static By inputMultipleCheckBox = By.xpath("//input[@class='cb1-element']");
+        }
 
         public static class SelectDropdownDemo{
             public static By selectDayOfWeek = By.xpath("//select[@id='select-demo']");

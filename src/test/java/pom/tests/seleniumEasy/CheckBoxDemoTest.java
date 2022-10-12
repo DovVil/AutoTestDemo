@@ -28,4 +28,49 @@ public class CheckBoxDemoTest extends TestBase {
         //Common.sleep(4000);
     }
 
+    //        PVZ kai reikia tikrinti elemento atributa(pvz value)
+    @Test
+    private void testMultipleCheckBoxStatusCheckedAll(){
+        String expectedButtonText = "Uncheck All";
+        String actualButtonText = "";
+        boolean expectedCheckBoxStatus = true;
+        boolean actualCheckBoxStatus;
+
+        CheckBoxDemoPage.clickCheckAll();
+        actualButtonText = CheckBoxDemoPage.readButtonIfItsUncheckAll();
+
+        Assert.assertEquals(actualButtonText, expectedButtonText);
+
+        actualCheckBoxStatus = CheckBoxDemoPage.checkStatusesOfCheckBoxes(expectedCheckBoxStatus);
+
+        Assert.assertEquals(actualCheckBoxStatus, expectedCheckBoxStatus);
+    }
+
+    @Test
+    private void testMultipleCheckBoxStatusUncheckedAll(){
+        String expectedButtonText = "Check All";
+        String actualButtonText;
+        boolean expectedCheckBoxStatus = false;
+        boolean actualCheckBoxStatus;
+
+        CheckBoxDemoPage.clickCheckAll();
+        CheckBoxDemoPage.clickCheckAll();
+
+        actualButtonText = CheckBoxDemoPage.readButtonIfItsUncheckAll();
+
+        Assert.assertEquals(actualButtonText, expectedButtonText);
+
+        actualCheckBoxStatus = CheckBoxDemoPage.checkStatusesOfCheckBoxes(expectedCheckBoxStatus);
+
+
+        //  >>>>>>>>>>>>>>>>>>>>>>DAUG ATIDUMO SU TRUE FALSe<<<<<<<<<<<<<<<<<<<<<<<<
+
+        //Assert.assertEquals(!actualCheckBoxStatus, expectedCheckBoxStatus);
+        //   actualCheckBoxStatus visada grazins true jeigu veikia taip kaip reikia
+        //   kadangi expectedCheckBoxStatus yra false tai reikia sauktuko paskutiniame asserte
+        //   nes darom assertEquals
+        //   todel geresnis avriantas:
+        Assert.assertTrue(actualCheckBoxStatus);
+    }
+
 }
