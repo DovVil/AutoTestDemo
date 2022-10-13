@@ -29,6 +29,11 @@ public class Locators {
             public static By rightClickButton = By.xpath("//button[@id='rightClickBtn']");
             public static By readRightClickMessage = By.xpath("//p[@id='rightClickMessage']");
         }
+        public static class DynamicProperties{
+            public static By clickButtonAfterWait = By.xpath("//button[@id='enableAfter']");
+            public static By clickButtonColorChange = By.xpath("//button[@id='colorChange']");
+            public static By clickButtonVisibleAfter = By.xpath("//button[@id='visibleAfter']");
+        }
 
     }
 

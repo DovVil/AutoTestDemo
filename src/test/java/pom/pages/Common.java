@@ -4,9 +4,12 @@ import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import pom.utils.Driver;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -109,5 +112,17 @@ public class Common {
         action.moveToElement(element);
         action.contextClick();
         action.perform();
+    }
+
+    public static void waitForElementToBeClickable(By locator) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(locator));
+    }
+
+
+    public static void waitForElementToChangeColor(By locator, String attributeName, String attributeValue) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.attributeContains(locator, attributeName, attributeValue));
+
     }
 }
