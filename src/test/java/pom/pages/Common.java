@@ -3,6 +3,7 @@ package pom.pages;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import pom.utils.Driver;
 
@@ -84,5 +85,29 @@ public class Common {
     public static void sendKeysToAlert(String sendKeys) {
         getAlert().sendKeys(sendKeys);
 
+    }
+
+    public static void clickElementByAction(By locator) {
+        WebElement element = getElement(locator);
+        Actions action = new Actions(Driver.getDriver());
+        action.moveToElement(element);
+        action.click();
+        action.perform();
+    }
+
+    public static void doubleClickElementByAction(By locator) {
+        WebElement element = getElement(locator);
+        Actions action = new Actions(Driver.getDriver());
+        action.moveToElement(element);
+        action.doubleClick();
+        action.perform();
+    }
+
+    public static void rightClickElementByAction(By locator) {
+        WebElement element = getElement(locator);
+        Actions action = new Actions(Driver.getDriver());
+        action.moveToElement(element);
+        action.contextClick();
+        action.perform();
     }
 }

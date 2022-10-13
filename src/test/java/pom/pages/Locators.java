@@ -16,6 +16,20 @@ public class Locators {
             public static By readAddress = By.xpath("//*[@class='mb-1']");
 
         }
+        public static class Home {
+            public static By clickElementsButtonDemoqaHomePage =
+                    By.xpath("//h5[text()= 'Elements']");
+        }
+        public static class Elements{
+            public static By menuButtons = By.xpath("(//*[@id='item-4'])[1]");
+        }
+        public static class ActionButtons{
+            public static By doubleClickButton = By.xpath("//button[@id='doubleClickBtn']");
+            public static By readDoubleClickMessage = By.xpath("//p[@id='doubleClickMessage']");
+            public static By rightClickButton = By.xpath("//button[@id='rightClickBtn']");
+            public static By readRightClickMessage = By.xpath("//p[@id='rightClickMessage']");
+        }
+
     }
 
     public static class SeleniumEasy{
