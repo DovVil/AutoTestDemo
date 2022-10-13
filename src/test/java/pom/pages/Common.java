@@ -125,4 +125,9 @@ public class Common {
         wait.until(ExpectedConditions.attributeContains(locator, attributeName, attributeValue));
 
     }
+
+    public static void waitForElementWithVisibilityChange(By locator) {
+        WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+    }
 }

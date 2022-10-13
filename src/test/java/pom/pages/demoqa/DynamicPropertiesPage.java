@@ -21,7 +21,8 @@ public class DynamicPropertiesPage {
         Common.clickElement(Locators.Demoqa.DynamicProperties.clickButtonColorChange);
     }
 
-    public static void clickButtonVisibleAfter() {
+    public static void clickButtonAfterVisibilityChange() {
+        Common.waitForElementWithVisibilityChange(Locators.Demoqa.DynamicProperties.clickButtonVisibleAfter);
         Common.clickElement(Locators.Demoqa.DynamicProperties.clickButtonVisibleAfter);
     }
 }

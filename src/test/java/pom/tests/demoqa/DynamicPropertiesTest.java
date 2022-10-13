@@ -16,9 +16,9 @@ public class DynamicPropertiesTest extends TestBase {
     @Test
     private void testButtonWithWait(){
 //        DynamicPropertiesPage.clickButtonAfterWait();
+//
+//        DynamicPropertiesPage.clickButtonAfterColorChange();
 
-        DynamicPropertiesPage.clickButtonAfterColorChange();
-
-//        DynamicPropertiesPage.clickButtonVisibleAfter();
+        DynamicPropertiesPage.clickButtonAfterVisibilityChange();
     }
 }
